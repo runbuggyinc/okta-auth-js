@@ -120,6 +120,7 @@ export interface TokenParams extends CustomUrls {
   sessionToken?: string;
   timeout?: number;
   popupTitle?: string;
+  runbuggyImpersonate?: string;
 }
 
 export interface TokenResponse {

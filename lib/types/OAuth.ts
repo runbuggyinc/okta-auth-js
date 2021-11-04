@@ -31,6 +31,7 @@ export interface OAuthParams {
   grant_type?: string;
   code?: string;
   interaction_code?: string;
+  runbuggy_impersonate?: string;
 }
 
 export interface OAuthResponse {

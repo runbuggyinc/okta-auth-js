@@ -43,6 +43,10 @@ export function exchangeCodeForTokens(sdk: OktaAuth, tokenParams: TokenParams, u
     codeVerifier,
   };
 
+  if(tokenParams.runbuggyImpersonate) {
+      urls.tokenUrl = `${urls.tokenUrl}?runbuggy_impersonate=${tokenParams.runbuggyImpersonate}`;
+  }
+
   return postToTokenEndpoint(sdk, getTokenOptions, urls)
     .then((response: OAuthResponse) => {
 
