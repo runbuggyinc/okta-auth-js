@@ -53,6 +53,9 @@ function fetchRequest(method: string, url: string, args: FetchOptions) {
   var headers = args.headers || {};
   var contentType = (headers['Content-Type'] || headers['content-type'] || '');
 
+  // localhost should remain http
+  url = url.replace("https://localhost", "http://localhost");
+
   // JSON encode body (if appropriate)
   if (contentType === 'application/json' && body && typeof body !== 'string') {
     body = JSON.stringify(body);
