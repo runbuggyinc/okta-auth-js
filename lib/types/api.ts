@@ -121,6 +121,7 @@ export interface TokenParams extends CustomUrls {
   timeout?: number;
   popupTitle?: string;
   runbuggyImpersonate?: string;
+  runbuggyTenantId?: string;
 }
 
 export interface TokenResponse {

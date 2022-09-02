@@ -32,6 +32,7 @@ export interface OAuthParams {
   code?: string;
   interaction_code?: string;
   runbuggy_impersonate?: string;
+  runbuggy_tenant_id?: string;
 }
 
 export interface OAuthResponse {

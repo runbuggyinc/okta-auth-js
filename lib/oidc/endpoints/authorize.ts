@@ -42,7 +42,8 @@ export function convertTokenParamsToOAuthParams(tokenParams: TokenParams) {
     'response_type': tokenParams.responseType,
     'sessionToken': tokenParams.sessionToken,
     'state': tokenParams.state,
-    'runbuggy_impersonate': tokenParams.runbuggyImpersonate
+    'runbuggy_impersonate': tokenParams.runbuggyImpersonate,
+    'runbuggy_tenant_id': tokenParams.runbuggyTenantId
   };
   oauthParams = removeNils(oauthParams) as OAuthParams;
 

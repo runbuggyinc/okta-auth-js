@@ -44,7 +44,11 @@ export function exchangeCodeForTokens(sdk: OktaAuth, tokenParams: TokenParams, u
   };
 
   if(tokenParams.runbuggyImpersonate) {
-      urls.tokenUrl = `${urls.tokenUrl}?runbuggy_impersonate=${tokenParams.runbuggyImpersonate}`;
+    urls.tokenUrl = addParamToTokenUrl(urls.tokenUrl, 'runbuggy_impersonate', tokenParams.runbuggyImpersonate);
+  }
+
+  if(tokenParams.runbuggyTenantId) {
+    urls.tokenUrl = addParamToTokenUrl(urls.tokenUrl, 'runbuggy_tenant_id', tokenParams.runbuggyTenantId);
   }
 
   return postToTokenEndpoint(sdk, getTokenOptions, urls)
@@ -75,4 +79,9 @@ export function exchangeCodeForTokens(sdk: OktaAuth, tokenParams: TokenParams, u
     .finally(() => {
       sdk.transactionManager.clear();
     });
+}
+
+function addParamToTokenUrl(tokenUrl, paramName, paramValue) {
+  let delim = (tokenUrl && tokenUrl.indexOf('?') > -1) ? '&' : '?';
+  return `${tokenUrl}${delim}${paramName}=${paramValue}`;
 }
